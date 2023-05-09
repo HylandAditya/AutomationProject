@@ -23,21 +23,25 @@ RUN API TEST AND ASSERT RETURN CODE
 #RUN TEST
 return_code = os.system('mvn clean test -Dsurefire.suiteXmlFiles=src/test/resources/enterprise-rest-api4.xml -Dskip.automationtests=false')
 print("RETURN CODE IS:", return_code)
-#ASSERT STATUS CODE
+# #ASSERT STATUS CODE
 if(return_code==1):
     #CHECK IF SURFIRE ISGENERATED
     if(os.path.isdir(path)):
+        #DELETE IF DIRECTORY ALREADY PRESENT
+        src_dir = path
+        path="C:/Users/ashiva/Downloads/REPORT/API4"
+        shutil.rmtree(path, ignore_errors=True)
         # move surfire report contents to Downloads
         # path to source directory
-        src_dir = 'fol1'
 
-        # path to destination directory
+
+        # # path to destination directory
         dest_dir = 'C:/Users/ashiva/Downloads/REPORT/API4'
 
         # getting all the files in the source directory
-        files = os.listdir(path)
+        #files = os.listdir(path)
 
-        shutil.copytree(path, dest_dir)
+        shutil.copytree(src_dir, dest_dir)
 
         # SEND TO SLACK
     else:
