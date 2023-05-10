@@ -32,8 +32,6 @@ if(return_code==1):
         shutil.rmtree(path, ignore_errors=True)
         # move surfire report contents to Downloads
         # path to source directory
-
-
         # # path to destination directory
         dest_dir = 'C:/Users/ashiva/Downloads/REPORT/API4'
 
